@@ -6,6 +6,7 @@
     --accent-color: #7c4dff;
     --hover-color: #9969ff;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --category-active: #7c4dff20;
 }
 
 * {
@@ -80,6 +81,72 @@ main {
     padding: 0 2rem;
 }
 
+/* Стили для секции категорий */
+.categories-section {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.categories-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.category-button {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 25px;
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-button:hover {
+    background-color: var(--category-active);
+    transform: translateY(-2px);
+}
+
+.category-button.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.category-count {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Стили для текущей категории */
+.current-category {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--secondary-bg);
+}
+
+.category-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.category-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Стили для сетки видео */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -92,6 +159,7 @@ main {
     overflow: hidden;
     transition: transform 0.3s ease;
     box-shadow: var(--card-shadow);
+    cursor: pointer;
 }
 
 .video-card:hover {
@@ -126,6 +194,7 @@ main {
     font-size: 1.2rem;
 }
 
+/* Адаптивный дизайн */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -143,5 +212,18 @@ main {
 
     .auth-button {
         width: 100%;
+    }
+
+    .categories-container {
+        justify-content: center;
+    }
+
+    .category-button {
+        flex: 1 1 calc(50% - 1rem);
+        text-align: center;
+    }
+
+    .current-category {
+        text-align: center;
     }
 } 
